@@ -1,4 +1,33 @@
 .MainDiv{
+  background-color: blue;
+  margin: 0 auto;
+  width: 1200px;
+  display: grid;
+  grid-template-areas:
+  "h h"
+  "n c"
+  "d d";
+
+   grid-template-rows: 60px 1fr 60px;
+   grid-template-columns: 2fr 10fr;
+
+}
+
+.MainDivContentDiv{
+  grid-area: d;
+  background-color: #E319D7;
+}
+
+/* .GrapePic{
+  height: 300px;
+  width: 40%;
+} */
+
+/*
+// до переделки под учебный вариант
+.MainDiv{
+  height: 100vh;
+  width: 100vw;
   display: -webkit-flex; 
   display: flex; 
   flex-direction: column;
@@ -7,12 +36,11 @@
   align-content: flex-end;
 }
 
-.GrapePic{
-  height: 300px;
-  width: 40%;
+.MainDiv{
+  background-image: url("https://klumba.guru/wp-content/uploads/post_5ab3c0d4e77ca.jpg");
+  height: 100vh;
+  width: 100vw;
 }
-
-/*
 .App {
   text-align: center;
 }

@@ -3,6 +3,8 @@ import s from './Menu.module.css';
 import MenuItem from './../MenuItem/MenuItem.jsx';
 //import Test from './Test.js';
 
+// это была чисто моя компонента, но я её убрал 
+// чтобы мой проект не отличался от учебного
 
 const Menu = () =>  {
   return (
