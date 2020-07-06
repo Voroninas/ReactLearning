@@ -5,6 +5,7 @@ const Post = (props) => {
 
   return (
     <div className={s.item}>
+    {/*eslint-disable-next-line*/}
       <img src='https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' />
         { props.message }
           <div>

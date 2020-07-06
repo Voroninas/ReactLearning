@@ -1,3 +1,25 @@
-.diarea {    
-    background-color: #18F1D0;
+.dialogs {    
+    background-color: #05D322;
+    display: grid;
+    grid-template-columns: 2fr 10fr
+}
+
+.dialogsItem{
+	padding: 10px
+}
+
+.dialogsItem .active{
+	color: gold
+}
+
+.dialogsItem .dialog {
+
+}
+
+.messages{
+	padding: 10px
+}
+
+.messages .message {
+
 }

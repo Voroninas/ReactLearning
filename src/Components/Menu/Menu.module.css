@@ -2,9 +2,10 @@
 /* это была чисто моя компонента, но я её убрал 
 чтобы мой проект не отличался от учебного */
 
-.MenuList {
+/* .MenuList {
+  grid-area: d;
   text-align: center;
   font-style: italic;
   font-weight: bold;
   font-size: 14pt 
-}
+} */

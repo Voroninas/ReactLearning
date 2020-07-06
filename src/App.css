@@ -8,14 +8,14 @@
   "n c"
   "d d";
 
-   grid-template-rows: 60px 1fr 60px;
+   grid-template-rows: 60px 1fr 120px;
    grid-template-columns: 2fr 10fr;
 
 }
 
 .MainDivContentDiv{
-  grid-area: d;
-  background-color: #E319D7;
+  grid-area: c;
+  background-color: #5604A2;
 }
 
 /* .GrapePic{
