@@ -12,23 +12,36 @@ import GridExample from './Components/GridExample/GridExample.jsx';
 // <img className="GrapePic" src="https://klumba.guru/wp-content/uploads/post_5ab3c0d4e77ca.jpg" />
 // <Menu />
 
-function App() {
-	return (
-		<BrowserRouter>
-			<div className="MainDiv">
-				<Header />
-				<Navbar />
-				<div className="MainDivContentDiv">
-					<Route path='/dialogs' component={Dialogs} />
-					<Route path='/profile' component={Profile} />
-					<Route path='/music' component={Menu} />
-					<Route path='/news' component={GridExample} />
-					{/*	/messages можно сюда компоненты с SVG вставить
-						/settings*/}
-				</div>
-			</div>
-		</BrowserRouter>
-	);
+function App(props) {
+console.log('>>>>>> props App <<<<<', props)
+return (
+<BrowserRouter>
+	<div className="MainDiv">
+		<Header />
+		<Navbar />
+		<div className="MainDivContentDiv">
+			{/*<Route path='/dialogs' component={Dialogs} />
+			<Route path='/profile' component={Profile} />
+			<Route path='/music' component={Menu} />
+			<Route path='/news' component={GridExample} />*/}
+			<Route path='/dialogs'>
+				<Dialogs messagesData={props.messagesData} dialogsData= {props.dialogsData}/>
+			</Route>
+			<Route path='/profile'>
+				<Profile {...props.profileData} />
+			</Route>
+			<Route path='/music'>
+				<Menu />
+			</Route>
+			<Route path='/news'>
+				<GridExample />
+			</Route>
+			{/*	/messages можно сюда компоненты с SVG вставить
+				/settings*/}
+		</div>
+	</div>
+</BrowserRouter>
+);
 }
 
 export default App;

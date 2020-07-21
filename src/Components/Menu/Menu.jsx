@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Menu.module.css';
-import MenuItem from './../MenuItem/MenuItem.jsx';
+import MenuItem from './MenuItem/MenuItem.jsx';
 //import Test from './Test.js';
 
 // это была чисто моя компонента, но я её убрал 

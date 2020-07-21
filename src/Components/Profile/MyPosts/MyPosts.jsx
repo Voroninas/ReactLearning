@@ -3,14 +3,7 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-
-  let postData = [
-    { id: "1", message: 'Hi, how are you?', likesCount: '0' },
-    { id: "2", message: "Now the posts data in array", likesCount: '23' },
-    { id: "3", message: "Посты не захардкожены в вёрстке", likesCount: '999' }
-  ]
-
-  let postElements = postData.map(postObj => <Post message={postObj.message} likesCount={postObj.likesCount} />)
+  let postElements = props.postData.map(postObj => <Post message={postObj.message} likesCount={postObj.likesCount} imgSrc={postObj.imgSrc} />)
 
   return (
     <div className={s.postsBlock}>
