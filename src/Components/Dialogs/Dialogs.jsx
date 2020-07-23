@@ -5,6 +5,7 @@ import DialogsItem from "./DialogsItem/DialogsItem"
 import Message from "./Message/Message"
 
 const Dialogs = (props) => {
+	debugger
 	/*console.log('>>>>>> props Dialogs <<<<<', props)*/
 	/*let {dialogsData, messagesData}=props это работает*/
 	let dialogsElements = props.dialogsData

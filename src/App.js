@@ -13,7 +13,6 @@ import GridExample from './Components/GridExample/GridExample.jsx';
 // <Menu />
 
 function App(props) {
-console.log('>>>>>> props App <<<<<', props)
 return (
 <BrowserRouter>
 	<div className="MainDiv">
@@ -25,7 +24,9 @@ return (
 			<Route path='/music' component={Menu} />
 			<Route path='/news' component={GridExample} />*/}
 			<Route path='/dialogs'>
-				<Dialogs messagesData={props.messagesData} dialogsData= {props.dialogsData}/>
+				<Dialogs 
+					messagesData={props.messagesData} 
+					dialogsData= {props.dialogsData}/>
 			</Route>
 			<Route path='/profile'>
 				<Profile {...props.profileData} />
