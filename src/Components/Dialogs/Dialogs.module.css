@@ -19,7 +19,12 @@
 .messages{
 	padding: 10px
 }
-
-.messages .message {
-
+/* чисто развлекаюсь и экспериментирую, 
+дз разместить сообщения в два столбца */
+.messageRight {
+	padding: 10px;
+    background-color: #5754E8;
+	
+    display: flex;
+    flex-direction: row-reverse;
 }

@@ -1,0 +1,33 @@
+.avatarSection {
+	width: 60px;
+}
+
+.avatarSection img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+}
+/* попробовать затать картинкам 
+width: calc(100%/3) */
+
+/* доработать сокращение/обрезание текста в подписи аватарки */
+/* в родительском контейнере ещё прописаны 
+  max-width: 380px; */
+  
+/* обрезка для одной строки */
+.overflowSingle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* обрезка когда строк много */
+.overflowMultiply {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 20px;
+  max-height: 60px;
+}

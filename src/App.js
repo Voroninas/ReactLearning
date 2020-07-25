@@ -17,7 +17,7 @@ return (
 <BrowserRouter>
 	<div className="MainDiv">
 		<Header />
-		<Navbar />
+		<Navbar friends = {props.friends} />
 		<div className="MainDivContentDiv">
 			{/*<Route path='/dialogs' component={Dialogs} />
 			<Route path='/profile' component={Profile} />
