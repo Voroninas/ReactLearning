@@ -1,12 +1,16 @@
 import React from 'react';
 import s from './../Dialogs.module.css';
+import commonStyle from './../../AvatarSection/AvatarSection.module.css';
 import { NavLink } from "react-router-dom"
 
 const DialogsItem = (props) => {
 	let path = "/dialogs/" + props.id
 	
 	return <div className={s.dialog}>
-		<NavLink to={path}>{props.name}</NavLink>
+		<NavLink className={s.linkStyle} to={path}>
+			<img className={commonStyle.roundAvatar} src={props.imgSrc} />
+			{props.name}
+		</NavLink>
 	</div>
 }
 

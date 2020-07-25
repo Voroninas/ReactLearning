@@ -1,10 +1,10 @@
 
 let state = {
 	dialogsData: [
-		{ id: "1", name: "типо имя что" },
-		{ id: "2", name: "Вася" },
-		{ id: "3", name: "Петя" },
-		{ id: "4", name: "Саня" }
+		{ id: "1", name: "Таня", imgSrc: 'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' },
+		{ id: "2", name: "Вася", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' },
+		{ id: "3", name: "Петя", imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' },
+		{ id: "4", name: "Саня", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' }
 	],
 	messagesData: [
 		{ id: "1", message: "Типо сообщения пользователя" },

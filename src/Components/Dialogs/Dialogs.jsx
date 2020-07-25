@@ -8,7 +8,7 @@ const Dialogs = (props) => {
 	/*console.log('>>>>>> props Dialogs <<<<<', props)*/
 	/*let {dialogsData, messagesData}=props это работает*/
 	let dialogsElements = props.dialogsData
-		.map(dialogObj => <DialogsItem name={dialogObj.name} id={dialogObj.id} />)
+		.map(dialogObj => <DialogsItem name={dialogObj.name} id={dialogObj.id} imgSrc={dialogObj.imgSrc} />)
 
 	let messageElements = props.messagesData
 		.map(messageObj => <Message {...messageObj} />)

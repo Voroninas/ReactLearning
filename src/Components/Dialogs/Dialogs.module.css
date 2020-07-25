@@ -12,8 +12,15 @@
 	color: gold
 }
 
-.dialogsItem .dialog {
+.linkStyle {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
 
+.linkStyle img {
+    margin-right: 10px 
 }
 
 .messages{
