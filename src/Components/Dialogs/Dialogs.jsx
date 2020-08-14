@@ -13,14 +13,30 @@ const Dialogs = (props) => {
 	let messageElements = props.messagesData
 		.map(messageObj => <Message {...messageObj} />)
 
+	let newMessageElement = React.createRef()
+	let addMessage = () => {
+		let textOfMessage = newMessageElement.current.value
+		props.addMessage(textOfMessage)
+		// alert(textOfMessage)
+		newMessageElement.current.value = ""
+	}
+
 	return (
-		<div className={style.dialogs}>
-			<div className={style.dialogsItem}>
-				{dialogsElements}
+		<div>
+			<div className={style.dialogs}>
+				<div className={style.dialogsItem}>
+					{dialogsElements}
+				</div>
+				<div className={style.messages}>
+					{messageElements}
+				</div>
 			</div>
-			<div className={style.messages}>
-				{messageElements}
+			<div>
+				<textarea autoFocus placeholder="типо placeholder" ref={newMessageElement}></textarea>
 			</div>
+			<div>
+				<button onClick={addMessage}>Add message</button>
+			</div>						
 		</div>
 	)
 }

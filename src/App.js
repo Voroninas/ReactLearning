@@ -5,43 +5,41 @@ import Navbar from './Components/Navbar/Navbar.jsx';
 import Profile from './Components/Profile/Profile';
 import Dialogs from './Components/Dialogs/Dialogs'
 import { Route } from 'react-router-dom'
-import { BrowserRouter } from 'react-router-dom'
 import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/GridExample/GridExample.jsx';
 
-// <img className="GrapePic" src="https://klumba.guru/wp-content/uploads/post_5ab3c0d4e77ca.jpg" />
-// <Menu />
-
 function App(props) {
 return (
-<BrowserRouter>
 	<div className="MainDiv">
 		<Header />
-		<Navbar friends = {props.friends} />
+		<Navbar friends = {props.state.friends} />
 		<div className="MainDivContentDiv">
-			{/*<Route path='/dialogs' component={Dialogs} />
-			<Route path='/profile' component={Profile} />
-			<Route path='/music' component={Menu} />
-			<Route path='/news' component={GridExample} />*/}
 			<Route path='/dialogs'>
 				<Dialogs 
-					messagesData={props.messagesData} 
-					dialogsData= {props.dialogsData}/>
+					messagesData={props.state.messagesData} 
+					dialogsData= {props.state.dialogsData}
+					addMessage= {props.addMessage}/>
 			</Route>
 			<Route path='/profile'>
-				<Profile {...props.profileData} />
+				<Profile 
+					profileData={props.state.profileData} 
+					addPost={props.addPost} 
+					updateNewPostText={props.updateNewPostText}/>
 			</Route>
-			<Route path='/music'>
+			<Route path='/menu'>
 				<Menu />
 			</Route>
 			<Route path='/news'>
 				<GridExample />
 			</Route>
-			{/*	/messages можно сюда компоненты с SVG вставить
-				/settings*/}
+			<Route path='/messages'>
+				<img style={{width: "900px"}} src="http://swiatgry.pl/media/tapety/974/you-are-empty-1920x1080.jpg" />
+			</Route>
+			<Route path='/settings'>
+				<img style={{width: "900px"}} src="https://avatars.mds.yandex.net/get-zen_doc/1857055/pub_5d792ba9fbe6e73d6415732f_5d792c1934808200ad4745e2/scale_1200" />
+			</Route>
 		</div>
 	</div>
-</BrowserRouter>
 );
 }
 

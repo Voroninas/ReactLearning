@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './../Dialogs.module.css';
-import commonStyle from './../../AvatarSection/AvatarSection.module.css';
+import commonStyle from './../../Navbar/FriendsTable/AvatarSection/AvatarSection.module.css';
+/*стили не от этой компоненты, а от других, это неправильно, 
+но сделано как временный вариант, позже переделается*/
 import { NavLink } from "react-router-dom"
 
 const DialogsItem = (props) => {
