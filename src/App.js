@@ -16,8 +16,8 @@ return (
 		<div className="MainDivContentDiv">
 			<Route path='/dialogs'>
 				<Dialogs 
-					messagesData={props.state.messagesData} 
-					dialogsData= {props.state.dialogsData}
+					dialogsPage={props.state.dialogsPage} 
+					updateNewMessageText={props.updateNewMessageText}
 					addMessage= {props.addMessage}/>
 			</Route>
 			<Route path='/profile'>

@@ -1,17 +1,20 @@
 import { rerenderEntireTree } from './../render';
 
 let state = {
-	dialogsData: [
-		{ id: 1, name: "Таня", imgSrc: 'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' },
-		{ id: 2, name: "Вася", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' },
-		{ id: 3, name: "Петя", imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' },
-		{ id: 4, name: "Саня", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' }
-	],
-	messagesData: [
-		{ id: 1, message: "Типо сообщения пользователя" },
-		{ id: 2, message: "Сообщение1" },
-		{ id: 3, message: "Сообщение2" }
-	],
+	dialogsPage:{		
+		dialogsData: [
+			{ id: 1, name: "Таня", imgSrc: 'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' },
+			{ id: 2, name: "Вася", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' },
+			{ id: 3, name: "Петя", imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' },
+			{ id: 4, name: "Саня", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' }
+		],
+		messagesData: [
+			{ id: 1, message: "Типо сообщения пользователя" },
+			{ id: 2, message: "Сообщение1" },
+			{ id: 3, message: "Сообщение2" }
+		],	
+		newMessageText:"текст из state.dialogsPage.newMessageText"
+	},
 	profileData: {
 		textDescripBlock: "ava and description",
 		imgSrc: 'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350',
@@ -20,7 +23,7 @@ let state = {
 			{ id: 2, message: "Now the posts data in array and obj", likesCount: 23, imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' },
 			{ id: 3, message: "Посты не захардкожены в вёрстке", likesCount: 999, imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' }
 		],
-		newPostText: 'текст из state'
+		newPostText: 'текст из state.profileData.newPostText'
 	},
 	friends: [
 		{ id: 1, name: "Бляблавич", imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' },
@@ -49,16 +52,23 @@ export let addPost = () => {
 	rerenderEntireTree(state)
 };
 
-export let addMessage = (textOfMessage) => {
-	state.messagesData.push({ 
+export let addMessage = () => {
+	let newMessage = { 
 		id: 77, 
-		message: textOfMessage 
-	})
+		message: state.dialogsPage.newMessageText 
+	}
+	state.dialogsPage.messagesData.push(newMessage)
+	state.dialogsPage.newMessageText = ""
 	rerenderEntireTree(state)
 }
 
 export let updateNewPostText = (newText) => {
 	state.profileData.newPostText=newText
+	rerenderEntireTree(state)
+}
+
+export let updateNewMessageText = (text)=>{
+	state.dialogsPage.newMessageText = text
 	rerenderEntireTree(state)
 }
 

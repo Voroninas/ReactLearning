@@ -4,10 +4,12 @@ import Post from './Post/Post';
 import { addPost } from './../../../redux/state';
 
 const MyPosts = (props) => {
-  // debugger
-  let postElements = props.postData.map(postObj => <Post message={postObj.message} likesCount={postObj.likesCount} imgSrc={postObj.imgSrc} />)
-  let newPostElement = React.createRef()
+  let postElements = props.postData
+    .map(postObj => <Post message={postObj.message} 
+                          likesCount={postObj.likesCount} 
+                          imgSrc={postObj.imgSrc} />)
 
+  let newPostElement = React.createRef()
   let addPost = () => {
     props.addPost()
     /*newPostElement.current.value = ""*/
@@ -25,7 +27,10 @@ const MyPosts = (props) => {
       <div>
         <div>
           {/*<textarea ref={newPostElement}></textarea>*/}
-          <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
+          <textarea onChange={onPostChange} 
+              ref={newPostElement} 
+              value={props.newPostText} 
+              style={{width:"400px"}} />
         </div>
         <div>
           <button onClick={addPost}>Add post</button>
