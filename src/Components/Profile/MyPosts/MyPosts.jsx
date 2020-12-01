@@ -4,6 +4,7 @@ import Post from './Post/Post';
 import { addPost } from './../../../redux/state';
 
 const MyPosts = (props) => {
+  console.log('>>>>>> MyPosts props <<<<<', props)  
   let postElements = props.postData
     .map(postObj => <Post message={postObj.message} 
                           likesCount={postObj.likesCount} 
@@ -11,14 +12,16 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef()
   let addPost = () => {
-    props.addPost()
+    props.dispatch({ type: "ADD-POST" })
     /*newPostElement.current.value = ""*/
     /*props.updateNewPostText("")*/
   }
 
   let onPostChange = () => {
     let text = newPostElement.current.value
-    props.updateNewPostText(text)
+    // props.updateNewPostText(text)
+    props.dispatch({ type: "UPDATE-NEW-POST-TEXT", 
+      newText: text })
   }
 
   return (

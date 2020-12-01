@@ -4,7 +4,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import MyPosts from './MyPosts/MyPosts';
 
 const Profile = (props) => {
-	console.log('>>>>>> props <<<<<', props)
+	// console.log('>>>>>> Profile props <<<<<', props)
 	return (
 		<div className={s.content}>
 			<ProfileInfo 
@@ -13,8 +13,7 @@ const Profile = (props) => {
 			<MyPosts 
 				postData={props.profileData.postData} 
 				newPostText={props.profileData.newPostText}
-				addPost={props.addPost}
-				updateNewPostText={props.updateNewPostText} />
+				dispatch={props.dispatch} />
 		</div>
 	)
 }

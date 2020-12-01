@@ -7,18 +7,20 @@ import Message from "./Message/Message"
 const Dialogs = (props) => {
 	/*let {dialogsData, messagesData}=props это работает*/
 	let dialogsElements = props.dialogsPage.dialogsData
-		.map(dialogObj => <DialogsItem name={dialogObj.name} 
-				id={dialogObj.id} imgSrc={dialogObj.imgSrc} />)
+		.map(dialogObj => <DialogsItem name={dialogObj.name}
+			id={dialogObj.id} imgSrc={dialogObj.imgSrc} />)
 
 	let messageElements = props.dialogsPage.messagesData
 		.map(messageObj => <Message {...messageObj} />)
 
 	let addMessage = () => {
-		props.addMessage()
+		props.dispatch({ type: "ADD-MESSAGE" })
 	}
 	let newMessageElement = React.createRef()
-	let onMessageChange = ()=>{
-		props.updateNewMessageText(newMessageElement.current.value)
+	let onMessageChange = () => {
+		props.dispatch({ type: "UPDATE-NEW-MESSAGE-TEXT", 
+			text: newMessageElement.current.value })
+		// props.updateNewMessageText(newMessageElement.current.value)
 	}
 
 	return (
@@ -32,16 +34,16 @@ const Dialogs = (props) => {
 				</div>
 			</div>
 			<div>
-				<textarea autoFocus 
+				<textarea autoFocus
 					onChange={onMessageChange}
 					value={props.dialogsPage.newMessageText}
-					placeholder="типо placeholder" 
+					placeholder="типо placeholder"
 					ref={newMessageElement}
-					style={{width:"400px"}} />
+					style={{ width: "400px" }} />
 			</div>
 			<div>
 				<button onClick={addMessage}>Add message</button>
-			</div>						
+			</div>
 		</div>
 	)
 }

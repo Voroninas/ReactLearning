@@ -9,6 +9,7 @@ import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/GridExample/GridExample.jsx';
 
 function App(props) {
+	//console.log('>>>>>> App props <<<<<', props)
 return (
 	<div className="MainDiv">
 		<Header />
@@ -17,14 +18,12 @@ return (
 			<Route path='/dialogs'>
 				<Dialogs 
 					dialogsPage={props.state.dialogsPage} 
-					updateNewMessageText={props.updateNewMessageText}
-					addMessage= {props.addMessage}/>
+					dispatch={props.dispatch} />
 			</Route>
 			<Route path='/profile'>
 				<Profile 
 					profileData={props.state.profileData} 
-					addPost={props.addPost} 
-					updateNewPostText={props.updateNewPostText}/>
+					dispatch={props.dispatch} />
 			</Route>
 			<Route path='/menu'>
 				<Menu />
