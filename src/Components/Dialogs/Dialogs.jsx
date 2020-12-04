@@ -14,14 +14,16 @@ const Dialogs = (props) => {
 	let messageElements = props.dialogsPage.messagesData
 		.map(messageObj => <Message {...messageObj} />)
 
-	let addMessage = () => {
+	let onAddMessageClick = () => {
 		props.dispatch(addMessageActionCreator())
 	}
-	let newMessageElement = React.createRef()
-	let onMessageChange = () => {
-		let text = newMessageElement.current.value
+	// let newMessageElement = React.createRef()
+	let onNewMessageChange = (event) => {
+		// let text = newMessageElement.current.value
+		let text = event.target.value
 		props.dispatch(updateNewMessageTextActionCreator(text))
 	}
+	let newMessageText = props.dialogsPage.newMessageText
 
 	return (
 		<div>
@@ -35,14 +37,13 @@ const Dialogs = (props) => {
 			</div>
 			<div>
 				<textarea autoFocus
-					onChange={onMessageChange}
-					value={props.dialogsPage.newMessageText}
+					onChange={onNewMessageChange}
+					value={newMessageText}
 					placeholder="типо placeholder"
-					ref={newMessageElement}
 					style={{ width: "400px" }} />
 			</div>
 			<div>
-				<button onClick={addMessage}>Add message</button>
+				<button onClick={onAddMessageClick}>Add message</button>
 			</div>
 		</div>
 	)

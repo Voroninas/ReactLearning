@@ -6,7 +6,7 @@ const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT"
 
 let store = {
 	_state: {
-		dialogsPage:{		
+		dialogsPage: {
 			dialogsData: [
 				{ id: 1, name: "Таня", imgSrc: 'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' },
 				{ id: 2, name: "Вася", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' },
@@ -17,8 +17,8 @@ let store = {
 				{ id: 1, message: "Типо сообщения пользователя" },
 				{ id: 2, message: "Сообщение1" },
 				{ id: 3, message: "Сообщение2" }
-			],	
-			newMessageText:"текст из this._state.dialogsPage.newMessageText"
+			],
+			newMessageText: "текст из this._state.dialogsPage.newMessageText"
 		},
 		profileData: {
 			textDescripBlock: "ava and description",
@@ -42,12 +42,12 @@ let store = {
 			{ id: 9, name: "Саня", imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' }
 		]
 	},
-	_callSubscriber(){},
+	_callSubscriber() { },
 
-	getState(){
+	getState() {
 		return this._state
 	},
-	subscribe (observer) {
+	subscribe(observer) {
 		this._callSubscriber = observer
 	},
 
@@ -79,57 +79,57 @@ let store = {
 		this._state.dialogsPage.newMessageText = text
 		this._callSubscriber(this._state)
 	},*/
-	dispatch (action) {
-		switch(action.type){
-			case ADD_POST: 
-				let newPost = { 
-					id: 13, 
-					message: this._state.profileData.newPostText, 
-					likesCount: 0, 
-					imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' 
+	dispatch(action) {
+		switch (action.type) {
+			case ADD_POST:
+				let newPost = {
+					id: this._state.profileData.postData.length + 1,
+					message: this._state.profileData.newPostText,
+					likesCount: 0,
+					imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg'
 				}
 				this._state.profileData.postData.push(newPost)
 				this._state.profileData.newPostText = ""
 				this._callSubscriber(this._state)
-			break;
+				break;
 			case ADD_MESSAGE:
-				let newMessage = { 
-					id: 77, 
-					message: this._state.dialogsPage.newMessageText 
+				let newMessage = {
+					id: this._state.dialogsPage.messagesData.length + 1,
+					message: this._state.dialogsPage.newMessageText
 				}
 				this._state.dialogsPage.messagesData.push(newMessage)
 				this._state.dialogsPage.newMessageText = ""
 				this._callSubscriber(this._state)
-			break;
+				break;
 			case UPDATE_NEW_POST_TEXT:
-				this._state.profileData.newPostText=action.newText
+				this._state.profileData.newPostText = action.newText
 				this._callSubscriber(this._state)
-			break;
+				break;
 			case UPDATE_NEW_MESSAGE_TEXT:
 				this._state.dialogsPage.newMessageText = action.text
 				this._callSubscriber(this._state)
-			break;
+				break;
 		}
 	}
 }
 
-export const addPostActionCreator = ()=>{
-  return { type: ADD_POST }
+export const addPostActionCreator = () => ({ type: ADD_POST })
+
+export const updateNewPostTextActionCreator = (text) => {
+	return {
+		type: UPDATE_NEW_POST_TEXT,
+		newText: text
+	}
 }
 
-export const updateNewPostTextActionCreator = (text)=>{
-  return { type: UPDATE_NEW_POST_TEXT, 
-      newText: text }
-}
+export const addMessageActionCreator = () => 
+  ({ type: ADD_MESSAGE })
 
-export const addMessageActionCreator = ()=>{
-  return { type: ADD_MESSAGE }
-}
-
-export const updateNewMessageTextActionCreator = (text)=>{
-  return { type: UPDATE_NEW_MESSAGE_TEXT, 
-      text: text }
-}
+export const updateNewMessageTextActionCreator = (text) => (
+	{
+		type: UPDATE_NEW_MESSAGE_TEXT,
+		text: text
+	})
 
 export default store;
 
