@@ -1,8 +1,6 @@
-
-const ADD_POST = "ADD-POST"
-const ADD_MESSAGE = "ADD-MESSAGE"
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT"
+import dialogsReducer from "./dialogsReducer"
+import profileReducer from "./profileReducer"
+import friendsReducer from "./friendsReducer"
 
 let store = {
 	_state: {
@@ -51,85 +49,15 @@ let store = {
 		this._callSubscriber = observer
 	},
 
-	/*addPost () {
-		let newPost = { 
-			id: 13, 
-			message: this._state.profileData.newPostText, 
-			likesCount: 0, 
-			imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' 
-		}
-		this._state.profileData.postData.push(newPost)
-		this._state.profileData.newPostText = ""
-		this._callSubscriber(this._state)
-	},
-	addMessage () {
-		let newMessage = { 
-			id: 77, 
-			message: this._state.dialogsPage.newMessageText 
-		}
-		this._state.dialogsPage.messagesData.push(newMessage)
-		this._state.dialogsPage.newMessageText = ""
-		this._callSubscriber(this._state)
-	},
-	updateNewPostText (newText) {
-		this._state.profileData.newPostText=newText
-		this._callSubscriber(this._state)
-	},
-	updateNewMessageText (text) {
-		this._state.dialogsPage.newMessageText = text
-		this._callSubscriber(this._state)
-	},*/
 	dispatch(action) {
-		switch (action.type) {
-			case ADD_POST:
-				let newPost = {
-					id: this._state.profileData.postData.length + 1,
-					message: this._state.profileData.newPostText,
-					likesCount: 0,
-					imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg'
-				}
-				this._state.profileData.postData.push(newPost)
-				this._state.profileData.newPostText = ""
-				this._callSubscriber(this._state)
-				break;
-			case ADD_MESSAGE:
-				let newMessage = {
-					id: this._state.dialogsPage.messagesData.length + 1,
-					message: this._state.dialogsPage.newMessageText
-				}
-				this._state.dialogsPage.messagesData.push(newMessage)
-				this._state.dialogsPage.newMessageText = ""
-				this._callSubscriber(this._state)
-				break;
-			case UPDATE_NEW_POST_TEXT:
-				this._state.profileData.newPostText = action.newText
-				this._callSubscriber(this._state)
-				break;
-			case UPDATE_NEW_MESSAGE_TEXT:
-				this._state.dialogsPage.newMessageText = action.text
-				this._callSubscriber(this._state)
-				break;
-		}
+
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+		this._state.profileData = profileReducer(this._state.profileData, action)
+		this._state.friends = friendsReducer(this._state.friends, action)
+
+    this._callSubscriber(this._state)
 	}
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
-
-export const updateNewPostTextActionCreator = (text) => {
-	return {
-		type: UPDATE_NEW_POST_TEXT,
-		newText: text
-	}
-}
-
-export const addMessageActionCreator = () => 
-  ({ type: ADD_MESSAGE })
-
-export const updateNewMessageTextActionCreator = (text) => (
-	{
-		type: UPDATE_NEW_MESSAGE_TEXT,
-		text: text
-	})
 
 export default store;
 

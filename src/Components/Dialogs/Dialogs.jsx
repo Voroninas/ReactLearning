@@ -3,7 +3,7 @@ import style from './Dialogs.module.css';
 import { NavLink } from "react-router-dom"
 import DialogsItem from "./DialogsItem/DialogsItem"
 import Message from "./Message/Message"
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from './../../redux/state';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from './../../redux/dialogsReducer.js';
 
 const Dialogs = (props) => {
 	/*let {dialogsData, messagesData}=props это работает*/
