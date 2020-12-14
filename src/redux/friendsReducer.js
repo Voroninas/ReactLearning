@@ -1,4 +1,7 @@
-const friendsReducer = (state, action)=>{
+
+let initialState = {}
+
+const friendsReducer = (state = initialState, action)=>{
 		/*switch (action.type) {
 			case ADD_POST:
 				let newPost = {
