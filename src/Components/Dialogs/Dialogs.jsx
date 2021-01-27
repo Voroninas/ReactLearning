@@ -1,29 +1,27 @@
 import React from 'react';
 import style from './Dialogs.module.css';
-import { NavLink } from "react-router-dom"
 import DialogsItem from "./DialogsItem/DialogsItem"
 import Message from "./Message/Message"
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from './../../redux/dialogsReducer.js';
 
 const Dialogs = (props) => {
 	/*let {dialogsData, messagesData}=props это работает*/
-	let dialogsElements = props.dialogsPage.dialogsData
+	let dialogsElements = props.dialogsData
 		.map(dialogObj => <DialogsItem name={dialogObj.name}
 			id={dialogObj.id} imgSrc={dialogObj.imgSrc} />)
 
-	let messageElements = props.dialogsPage.messagesData
+	let messageElements = props.messagesData
 		.map(messageObj => <Message {...messageObj} />)
 
 	let onAddMessageClick = () => {
-		props.dispatch(addMessageActionCreator())
+		props.addMessage()
 	}
 	// let newMessageElement = React.createRef()
 	let onNewMessageChange = (event) => {
 		// let text = newMessageElement.current.value
 		let text = event.target.value
-		props.dispatch(updateNewMessageTextActionCreator(text))
+		props.updateNewMessageBody(text)
 	}
-	let newMessageText = props.dialogsPage.newMessageText
+	let newMessageText = props.newMessageText
 
 	return (
 		<div>

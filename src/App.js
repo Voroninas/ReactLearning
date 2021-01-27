@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Components/Header/Header.jsx';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Profile from './Components/Profile/Profile';
-import Dialogs from './Components/Dialogs/Dialogs'
+import DialogsContainer from './Components/Dialogs/DialogsContainer'
 import { Route } from 'react-router-dom'
 import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/GridExample/GridExample.jsx';
@@ -16,14 +16,10 @@ return (
 		<Navbar friends = {props.state.friends} />
 		<div className="MainDivContentDiv">
 			<Route path='/dialogs'>
-				<Dialogs 
-					dialogsPage={props.state.dialogsPage} 
-					dispatch={props.dispatch} />
+				<DialogsContainer />
 			</Route>
 			<Route path='/profile'>
-				<Profile 
-					profileData={props.state.profileData} 
-					dispatch={props.dispatch} />
+				<Profile store={props.store} />
 			</Route>
 			<Route path='/menu'>
 				<Menu />

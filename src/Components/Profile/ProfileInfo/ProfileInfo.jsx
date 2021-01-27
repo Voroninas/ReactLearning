@@ -5,7 +5,7 @@ const ProfileInfo = (props) => {
   return (
     <div>
       <div>
-        <img src={props.imgSrc} />
+        <img style={{width: "500px"}} src={props.imgSrc} />
       </div>
       <div className={s.descriptionBlock}>
         {props.textDescripBlock}

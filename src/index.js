@@ -13,21 +13,30 @@ import { BrowserRouter } from 'react-router-dom'
 //import state from './redux/state';
 //import { rerenderEntireTree } from './render';*/
 
+//11:20 на 44 уроке преп говорит как создать контекст, StoreContext.Provider
+// но на след уроке он будет браться из другого источника, 
+// так что пока не пишу импорт для него
 let rerenderEntireTree = (state) => {
 	ReactDOM.render(
-		<BrowserRouter>		
-			<App state={state} 
-			dispatch={store.dispatch.bind(store)} />
+		<BrowserRouter>
+			<StoreContext.Provider value={store}>
+				{/* из-за контекста оставляю голый App 
+				<App state={state}
+					store={store}
+					dispatch={store.dispatch.bind(store)} />*/}
+				<App />
 				{/*addPost={store.addPost.bind(store)} 
 				addMessage={store.addMessage.bind(store)} 
 				updateNewPostText={store.updateNewPostText.bind(store)}
 				updateNewMessageText={store.updateNewMessageText.bind(store)}*/}
+			</StoreContext.Provider>
 		</BrowserRouter>, document.getElementById('root')
+
 	);
 }
 rerenderEntireTree(store.getState())
 
-store.subscribe(()=>{
+store.subscribe(() => {
 	let state = store.getState()
 	rerenderEntireTree(state)
 })
