@@ -8,18 +8,22 @@ import { Route } from 'react-router-dom'
 import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/GridExample/GridExample.jsx';
 
-function App(props) {
+function App() {
 	//console.log('>>>>>> App props <<<<<', props)
 return (
 	<div className="MainDiv">
 		<Header />
-		<Navbar friends = {props.state.friends} />
+		{/*димыч гад так и не сделал эту домашку, а мне 
+		надоело править поломки появляющиеся из-за этого куска кода
+		<Navbar friends = {props.state.friends} />*/}
+		<Navbar />
 		<div className="MainDivContentDiv">
 			<Route path='/dialogs'>
 				<DialogsContainer />
 			</Route>
 			<Route path='/profile'>
-				<Profile store={props.store} />
+				{/*<Profile store={props.store} />*/}
+				<Profile />
 			</Route>
 			<Route path='/menu'>
 				<Menu />
