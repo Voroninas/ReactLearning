@@ -7,10 +7,11 @@ const Dialogs = (props) => {
 	/*let {dialogsData, messagesData}=props это работает*/
 	let dialogsElements = props.dialogsData
 		.map(dialogObj => <DialogsItem name={dialogObj.name}
-			id={dialogObj.id} imgSrc={dialogObj.imgSrc} />)
-
+			id={dialogObj.id} key={dialogObj.id} imgSrc={dialogObj.imgSrc} />)
+/*let messageElements = props.messagesData
+    .map(messageObj => <Message {...messageObj} />)*/
 	let messageElements = props.messagesData
-		.map(messageObj => <Message {...messageObj} />)
+		.map(messageObj => <Message {...messageObj} key={messageObj.id}  />)
 
 	let onAddMessageClick = () => {
 		props.addMessage()
