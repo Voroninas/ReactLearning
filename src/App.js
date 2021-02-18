@@ -7,6 +7,7 @@ import DialogsContainer from './Components/Dialogs/DialogsContainer'
 import { Route } from 'react-router-dom'
 import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/GridExample/GridExample.jsx';
+import UsersContainer from './Components/Users/UsersContainer.jsx'
 
 function App() {
 	//console.log('>>>>>> App props <<<<<', props)
@@ -22,9 +23,13 @@ return (
 				<DialogsContainer />
 			</Route>
 			<Route path='/profile'>
-				{/*<Profile store={props.store} />*/}
 				<Profile />
 			</Route>
+			{/*<Route path='/users' render={() => <div></div>} />*/}
+			<Route path='/users'>
+				<UsersContainer />
+			</Route>
+
 			<Route path='/menu'>
 				<Menu />
 			</Route>
