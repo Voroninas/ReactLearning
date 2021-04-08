@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './Components/Header/Header.jsx';
 import Navbar from './Components/Navbar/Navbar.jsx';
-import Profile from './Components/Profile/Profile';
+import ProfileContainer from './Components/Profile/ProfileContainer';
 import DialogsContainer from './Components/Dialogs/DialogsContainer'
 import { Route } from 'react-router-dom'
 import Menu from './Components/Menu/Menu.jsx';
@@ -23,7 +23,7 @@ return (
 				<DialogsContainer />
 			</Route>
 			<Route path='/profile'>
-				<Profile />
+				<ProfileContainer />
 			</Route>
 			{/*<Route path='/users' render={() => <div></div>} />*/}
 			<Route path='/users'>
