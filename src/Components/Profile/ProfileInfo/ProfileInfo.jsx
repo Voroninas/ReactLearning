@@ -6,6 +6,7 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />
   }
+
   return (
     <div>
       <div>
@@ -14,7 +15,10 @@ const ProfileInfo = (props) => {
       </div>
       <div className={s.descriptionBlock}>
       <img src={props.profile.photos.large} />
-        ava and description
+        <div>Меня зовут {props.profile.fullName}</div>
+        <div>Обо мне: {props.profile.aboutMe}</div>
+        <div>Контакты: {props.profile.contacts.facebook}, {props.profile.contacts.vk}</div>
+        <div>{props.profile.lookingForAJob ? 'Хочу работать!' : 'Работа? Да кому она нужна???'}</div>
       </div>
     </div>
   )
