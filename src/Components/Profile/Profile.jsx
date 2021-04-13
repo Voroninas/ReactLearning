@@ -7,10 +7,6 @@ const Profile = (props) => {
 	/*console.log(props)*/
 	return (
 		<div className={s.content}>
-			{/*<ProfileInfo 
-				textDescripBlock={props.store.getState().profileData.textDescripBlock} 
-				imgSrc={props.store.getState().profileData.imgSrc} />
-			<MyPostsContainer store={props.store} />*/}
 			<ProfileInfo profile={props.profile}/>
 			<MyPostsContainer />
 		</div>
