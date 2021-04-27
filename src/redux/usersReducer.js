@@ -12,7 +12,7 @@ let initialState = {
 	currentPage: 1,
 	isFetching: false
 }
-// interesting 'callbackfn' is so necessary to write? 
+
 const usersReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FOLLOW: {

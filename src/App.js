@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header.jsx';
+import HeaderContainer from './Components/Header/HeaderContainer.jsx';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import ProfileContainer from './Components/Profile/ProfileContainer';
 import DialogsContainer from './Components/Dialogs/DialogsContainer'
@@ -13,7 +13,7 @@ function App() {
 	//console.log('>>>>>> App props <<<<<', props)
 return (
 	<div className="MainDiv">
-		<Header />
+		<HeaderContainer />
 		{/*димыч гад так и не сделал эту домашку, а мне 
 		надоело править поломки появляющиеся из-за этого куска кода
 		<Navbar friends = {props.state.friends} />*/}

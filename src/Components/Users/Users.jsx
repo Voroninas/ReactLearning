@@ -20,6 +20,7 @@ const Users = (props) => {
 					onClick={(e) => { props.onPageChanged(p) }}>{p}</span>
 			})
 			}
+			<div>Итого {pagesCount} страниц, всего пользователей: {props.totalUsersCount}</div>		
 		</div>
 		{
 			props.users.map(u => <div key={u.id}>

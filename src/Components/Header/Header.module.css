@@ -8,3 +8,10 @@
     object-fit: contain;
 }
 
+.loginBlock{
+	float: left;	
+}
+
+.loginBlock a {
+	color: white
+}
