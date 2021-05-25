@@ -8,9 +8,9 @@ const Header = (props) => {
         <img src='https://i.pinimg.com/736x/4c/70/63/4c7063212792902ae0d0d517a30aa1ac.jpg' />
 
         <div className={s.loginBlock}>
-        					{/*props.login*/} 
-        	{ props.isAuth ? 'типо авторизован уже' :
-        	<NavLink to={'/login'}>Login</NavLink>
+        	{ props.isAuth ? 
+        		props.login :
+        		<NavLink to={'/login'}>Login</NavLink>
         	}
         </div>
     </header>

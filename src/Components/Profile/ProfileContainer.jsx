@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import * as axios from 'axios'
 import Profile from './Profile';
 import { setUserProfile } from '../../redux/profileReducer.js'
+import { userProfileAPI } from '../../api/api.js'
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -11,12 +12,12 @@ class ProfileContainer extends React.Component {
     if (!userId){
       userId = 2
     }
-    /*axios.get(`https://social-network.samuraijs.com/api/1.0/profile/id=${userId}`)*/ //не уверен что так сработает, возможно пропустил /
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId) // ещё 8 полный
-      .then(response => {
+    userProfileAPI.getAuthUserData(userId).then(data => {
+    /*axios.get(`https://social-network.samuraijs.com/api/1.0/profile/id=${userId}`)*/ // i`m not sure that it will work
+    // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId) // 8-th profile is full of information
+      
         /*this.props.toggleIsFetching(false)*/
-        /*console.log("response по запросу профиля", response)*/
-        this.props.setUserProfile(response.data)
+        this.props.setUserProfile(data)
       })
   }
 	render(){

@@ -8,7 +8,7 @@ let initialState = {
   isAuth: false/*,
   isFetching: false*/
 }
-// interesting 'callbackfn' is so necessary to write? 
+
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_USER_DATA: {
