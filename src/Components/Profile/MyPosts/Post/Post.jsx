@@ -5,11 +5,11 @@ const Post = (props) => {
 
   return (
     <div className={s.item}>
-    {/*eslint-disable-next-line*/}
-      <img src= { props.imgSrc }/>
-        { props.message }
-          <div>
-        <span>like</span> { props.likesCount }
+      {/*eslint-disable-next-line*/}
+      <img src={props.imgSrc} />
+      { props.message}
+      <div>
+        <span>like</span> {props.likesCount}
       </div>
     </div>
   )

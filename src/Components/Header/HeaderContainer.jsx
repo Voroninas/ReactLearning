@@ -12,20 +12,20 @@ class HeaderContainer extends React.Component {
     /*axios.get('').then(response => {})*/
     /*this.props.toggleIsFetching(true)*/
     authUserDataAPI.getAuthUserData().then(data => {
-        /*debugger*/
-        /*this.props.toggleIsFetching(false)*/
-        if (data.resultCode === 0){
-          let {id,email,login} = data.data
-          this.props.setAuthUserData(id, email, login)
-        }
-      })
+      /*debugger*/
+      /*this.props.toggleIsFetching(false)*/
+      if (data.resultCode === 0) {
+        let { id, email, login } = data.data
+        this.props.setAuthUserData(id, email, login)
+      }
+    })
   }
   render() {
     return <Header {...this.props} />
   }
 }
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state) => {
   return {
     isAuth: state.auth.isAuth,
     login: state.auth.login // now i`m login

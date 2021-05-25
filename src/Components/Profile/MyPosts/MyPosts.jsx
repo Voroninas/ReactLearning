@@ -13,7 +13,7 @@ const MyPosts = (props) => {
       imgSrc={postObj.imgSrc} />)
 
   let newPostElement = React.createRef()
-  
+
   let onAddPost = () => {
     props.addPost()
   }
@@ -60,8 +60,7 @@ const MyPosts = (props) => {
 //аха! в коде использовалась ссылка! и походу это
 //опять косяк препа "ради обучения"
   let newPostElement = React.createRef()
-  
-  let onAddPost = () => {
+   let onAddPost = () => {
     props.addPost()
   }
 
@@ -76,7 +75,7 @@ const MyPosts = (props) => {
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea onChange={onPostChange}            
+          <textarea onChange={onPostChange}
             value={props.newPostText}
             style={{ width: "400px" }} />
         </div>

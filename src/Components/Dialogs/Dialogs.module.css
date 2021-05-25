@@ -5,11 +5,11 @@
 }
 
 .dialogsItem{
-	padding: 10px
+  padding: 10px
 }
 
 .dialogsItem .active{
-	color: gold
+  color: gold
 }
 
 .linkStyle {
@@ -24,14 +24,14 @@
 }
 
 .messages{
-	padding: 10px
+  padding: 10px
 }
+
 /* чисто развлекаюсь и экспериментирую, 
 дз разместить сообщения в два столбца */
 .messageRight {
-	padding: 10px;
+  padding: 10px;
     background-color: #5754E8;
-	
     display: flex;
     flex-direction: row-reverse;
 }

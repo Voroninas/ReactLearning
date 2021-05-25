@@ -6,11 +6,11 @@ import MenuItem from './MenuItem/MenuItem.jsx';
 // это была чисто моя компонента, но я её убрал 
 // чтобы мой проект не отличался от учебного
 
-const Menu = () =>  {
+const Menu = () => {
   return (
-    <div className = {s.MenuList}>
-        <MenuItem textMenuItem = "Первый пункт"/>
-        <MenuItem textMenuItem = "Второй пункт"/>
+    <div className={s.MenuList}>
+      <MenuItem textMenuItem="Первый пункт" />
+      <MenuItem textMenuItem="Второй пункт" />
     </div>
   );
 }
