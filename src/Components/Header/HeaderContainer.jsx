@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import * as axios from 'axios'
 import Preloader from '../common/preloader/Preloader.js'
 import Header from './Header.jsx'
-import { authUserDataAPI } from '../../api/api.js'
+import { authUserDataAPI, userProfileAPI } from '../../api/api.js'
 
 
 class HeaderContainer extends React.Component {
@@ -17,6 +17,12 @@ class HeaderContainer extends React.Component {
       if (data.resultCode === 0) {
         let { id, email, login } = data.data
         this.props.setAuthUserData(id, email, login)
+
+        /*userProfileAPI.getAuthUserData(id).then(data => {
+          debugger
+          let shet = data
+          // well now i can get only lookingForAJob from this ajax
+        })*/
       }
     })
   }

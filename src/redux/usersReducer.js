@@ -11,8 +11,8 @@ let initialState = {
   pageSize: 5,
   totalUsersCount: 0,
   currentPage: 1,
-  isFetching: false,
-  followingInProgress: []
+  isFetching: false,  // this is big spinny thing on/off
+  followingInProgress: []  // this is array with id of users, which data we changing right now
 }
 
 const usersReducer = (state = initialState, action) => {

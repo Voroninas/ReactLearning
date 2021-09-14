@@ -18,11 +18,11 @@ export const usersAPI = {
   unfollowUser(usersId) {
     return instance.delete(`follow/${usersId}`)
       .then(response => response.data)
-  },
+  },  // i thing the problem is here, maybe response have another structure
   followUser(usersId) {
     return instance.post(`follow/${usersId}`)
       .then(response => response.data)
-  }
+  } // i thing the problem is here, maybe response have another structure
 }
 
 export const userProfileAPI = {

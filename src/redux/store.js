@@ -1,3 +1,6 @@
+/* this file not need for work APP,
+BUT it will help to better understand store
+
 import dialogsReducer from "./dialogsReducer"
 import profileReducer from "./profileReducer"
 import friendsReducer from "./friendsReducer"
@@ -61,4 +64,4 @@ let store = {
 
 export default store;
 
-window.store = store
+window.store = store*/

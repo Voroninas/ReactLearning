@@ -1,12 +1,11 @@
 const SET_USER_DATA = 'SET_USER_DATA'
-const UNFOLLOW = 'UNFOLLOW'
 
 let initialState = {
   userId: null,
   email: null,
   login: null,
   isAuth: false/*,
-  isFetching: false*/
+  isFetching: false*/ // looks like i need to do it myself
 }
 
 const authReducer = (state = initialState, action) => {
