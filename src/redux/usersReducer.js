@@ -18,7 +18,7 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW: {
-      return {
+      return {...state,
         users: state.users.map(u => {
           if (u.id === action.userId) {
             return { ...u, followed: true }
@@ -28,7 +28,7 @@ const usersReducer = (state = initialState, action) => {
       }
     }
     case UNFOLLOW: {
-      return {
+      return {...state,
         users: state.users.map(u => {
           if (u.id === action.userId) {
             return { ...u, followed: false }
@@ -51,10 +51,10 @@ const usersReducer = (state = initialState, action) => {
     }
     case TOGGLE_IS_FOLLOWING_PROGRESS: {
       return {
-        ...state,
+        ...state,        
         followingInProgress: action.isFetching ?
           [...state.followingInProgress, action.userId]
-          : state.followingInProgress.filter(id => id !== action.userId)
+          : state.followingInProgress.filter(id => id != action.userId)
       }
     }
     default: return state
