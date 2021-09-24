@@ -60,7 +60,7 @@ const usersReducer = (state = initialState, action) => {
     default: return state
   }
 }
-
+//йух разрулил!
 export const follow = (userId) => ({ type: FOLLOW, userId })
 export const unfollow = (userId) => ({ type: UNFOLLOW, userId })
 export const setUsers = (users) => ({ type: SET_USERS, users })
