@@ -1,9 +1,7 @@
 import React from 'react'
 import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.png'
-import { NavLink } from "react-router-dom"
-import * as axios from 'axios'
-import { usersAPI } from '../../api/api.js'
+import { NavLink } from 'react-router-dom'
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -24,7 +22,7 @@ const Users = (props) => {
           onClick={(e) => { props.onPageChanged(p) }}>{p} </span>*/}
     <div>
       {pages.map(p => {
-        return <span className={props.currentPage === p ? styles.selectedPage : styles.unselectedPage }
+        return <span className={props.currentPage === p ? styles.selectedPage : styles.unselectedPage}
           onClick={(e) => { props.onPageChanged(p) }}>{p} </span>
       })
       }
@@ -32,7 +30,7 @@ const Users = (props) => {
       ...
       {
         endPages.map(p => {
-          return <span className={props.currentPage === p ? styles.selectedPage : styles.unselectedPage }
+          return <span className={props.currentPage === p ? styles.selectedPage : styles.unselectedPage}
             onClick={(e) => { props.onPageChanged(p) }}> {p}</span>
         })
       }
@@ -53,34 +51,16 @@ const Users = (props) => {
           </div>
           <div>
             {u.followed
-              ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                props.toggleFollowingProgress(true, u.id)
-                usersAPI.unfollowUser(u.id).then(data => {
-                  if (data.resultCode == 0) {
-                    props.unfollow(u.id)
-                  }
-                  props.toggleFollowingProgress(false, u.id)
-                })
-              }}>Unfollow</button>
-              : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                props.toggleFollowingProgress(true, u.id)
-
-                usersAPI.followUser(u.id).then(data => {
-                  /* при пост запросе вторым аргументом идёт пустой объект
-                  хз будет ли работать если сделано через instance
-                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                  withCredentials: true,
-                  headers: {
-                    'API-KEY': 'fb197b73-63a1-43b8-a2b2-92ee80c0ca0b'
-                  }
-                })*/
-
-                  if (data.resultCode == 0) {
-                    props.follow(u.id)
-                  }
-                  props.toggleFollowingProgress(false, u.id)
-                })
-              }}>Follow</button>
+              ? <button disabled={props.followingInProgress
+                .some(id => id === u.id)}
+                onClick={() => {
+                  props.unfollow(u.id)
+                }}>Unfollow</button>
+              : <button disabled={props.followingInProgress
+                .some(id => id === u.id)}
+                onClick={() => {
+                  props.follow(u.id)
+                }}>Follow</button>
             }
           </div>
         </span>

@@ -15,14 +15,14 @@ export const usersAPI = {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`)
       .then(response => response.data)
   },
-  unfollowUser(usersId) {
+  unfollow(usersId) {
     return instance.delete(`follow/${usersId}`)
       .then(response => response.data)
-  },  // i thing the problem is here, maybe response have another structure
-  followUser(usersId) {
+  },
+  follow(usersId) {
     return instance.post(`follow/${usersId}`)
       .then(response => response.data)
-  } // i thing the problem is here, maybe response have another structure
+  }
 }
 
 export const userProfileAPI = {
