@@ -22,22 +22,26 @@ export const usersAPI = {
   follow(usersId) {
     return instance.post(`follow/${usersId}`)
       .then(response => response.data)
-  }
-}
-
-export const userProfileAPI = {
-  getAuthUserData(userId) {
-    return instance.get(`profile/${userId}`)
+  },
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`)  // teacher used all response, not cut it
       .then(response => response.data)
   }
 }
 
-export const authUserDataAPI = {
-  getAuthUserData() {
+export const authAPI = {
+  me() {
     return instance.get(`auth/me`)
       .then(response => response.data)
   }
 }
+
+/*export const userProfileAPI = {  // added to usersAPI
+  getAuthUserData(userId) {
+    return instance.get(`profile/${userId}`)
+      .then(response => response.data)
+  }
+}*/
 
 /*export const getUsers = (currentPage = 1, pageSize = 10) => {
   return instance.get(`users?page=${currentPage}&count=${pageSize}`)
