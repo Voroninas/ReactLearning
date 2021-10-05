@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 import HeaderContainer from './Components/Header/HeaderContainer.jsx';
 import Navbar from './Components/Navbar/Navbar.jsx';
+import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
-import DialogsContainer from './Components/Dialogs/DialogsContainer'
+import UsersContainer from './Components/Users/UsersContainer.jsx';
+import LoginPage from './Components/Login/Login.jsx';
 import { Route } from 'react-router-dom'
+
 import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/GridExample/GridExample.jsx';
-import UsersContainer from './Components/Users/UsersContainer.jsx'
 
 function App() {
   //console.log('>>>>>> App props <<<<<', props)
@@ -23,6 +25,7 @@ function App() {
         <Route path='/profile/:userId?'><ProfileContainer /></Route>
         {/*<Route path='/users' render={() => <div></div>} />*/}
         <Route path='/users'><UsersContainer /></Route>
+        <Route path='/login'><LoginPage /></Route>
 
         <Route path='/menu'><Menu /></Route>
         <Route path='/news'><GridExample /></Route>

@@ -1,34 +1,18 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
+import { connect } from "react-redux"
+import { withAuthRedirect } from '../hoc/withAuthRedirect.jsx'
 import Dialogs from './Dialogs'
 import {
   addMessageActionCreator,
   updateNewMessageTextActionCreator
 } from './../../redux/dialogsReducer.js';
-import { connect } from "react-redux"
-/* 45 урок, заменили контейнерную компоненту сделанную руками
-на автосгенерированную библиотекой "react-redux"
-const DialogsContainer = () => {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let addMessage = () => {
-          store.dispatch(addMessageActionCreator())
-        }
 
-        let newMessageChange = (text) => {
-          let action = updateNewMessageTextActionCreator(text)
-          store.dispatch(action)
-        }
-        return <Dialogs
-          dialogsData={store.getState().dialogsPage.dialogsData}
-          messagesData={store.getState().dialogsPage.messagesData}
-          newMessageText={store.getState().dialogsPage.newMessageText}
-          addMessage={addMessage}
-          updateNewMessageBody={newMessageChange} />
-        }
-      }
-      </StoreContext.Consumer>)
-    }*/
+let AuthRedirectComponent = withAuthRedirect(Dialogs)
+/*let AuthRedirectComponent = (props) => {
+  if (!props.isAuth) return <Redirect to={'/login'} />
+  return <Dialogs {...props} />
+}*/
 
 let mapStateToProps = (state) => {
   return {
@@ -49,6 +33,8 @@ let mapDispatchToProps = (dispatch) => {
   }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const DialogsContainer = connect(
+  mapStateToProps, 
+  mapDispatchToProps)(AuthRedirectComponent)
 
 export default DialogsContainer;
