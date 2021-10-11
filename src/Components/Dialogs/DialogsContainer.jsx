@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { connect } from "react-redux"
+import { compose } from "redux"
 import { withAuthRedirect } from '../hoc/withAuthRedirect.jsx'
 import Dialogs from './Dialogs'
 import {
@@ -8,8 +9,9 @@ import {
   updateNewMessageTextActionCreator
 } from './../../redux/dialogsReducer.js';
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs)
-/*let AuthRedirectComponent = (props) => {
+/*let AuthRedirectComponent = withAuthRedirect(Dialogs)*/
+
+/*let AuthRedirectComponent = (props) => {  // it was just a example, a variation how to do redirect
   if (!props.isAuth) return <Redirect to={'/login'} />
   return <Dialogs {...props} />
 }*/
@@ -33,8 +35,10 @@ let mapDispatchToProps = (dispatch) => {
   }
 }
 
-const DialogsContainer = connect(
+/*const DialogsContainer = connect(
   mapStateToProps, 
-  mapDispatchToProps)(AuthRedirectComponent)
+  mapDispatchToProps)(AuthRedirectComponent)*/
 
-export default DialogsContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps), 
+  withAuthRedirect) (Dialogs); 

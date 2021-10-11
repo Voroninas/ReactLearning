@@ -3,8 +3,10 @@ import {
   follow, unfollow, setCurrentPage, getUsers
 } from './../../redux/usersReducer.js';
 import { connect } from "react-redux"
+import { compose } from "redux"
 import Users from './Users'
 import Preloader from '../common/preloader/Preloader.js'
+import { withAuthRedirect } from '../hoc/withAuthRedirect.jsx'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -43,9 +45,15 @@ let mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {
+// to do i think here to much callbacks, we have thunk
+export default compose(
+  connect(mapStateToProps, { follow, unfollow, setCurrentPage, getUsers }),
+  /*withAuthRedirect*/)(UsersContainer);
+  
+
+/*export default connect(mapStateToProps, {
   follow,
   unfollow,
   setCurrentPage,
   getUsers
-})(UsersContainer);
+})(UsersContainer);*/
