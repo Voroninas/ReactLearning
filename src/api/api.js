@@ -6,7 +6,7 @@ const instance = axios.create({
   withCredentials: true,
   baseURL: 'https://social-network.samuraijs.com/api/1.0/',
   headers: {
-    'API-KEY': '5330e579-2c3e-4d0f-8660-ef176eeacb36'
+    'API-KEY': 'cf03206a-2a52-4a49-879d-252bca708e1c'
   }
 })
 
@@ -24,8 +24,24 @@ export const usersAPI = {
       .then(response => response.data)
   },
   getProfile(userId) {
+    console.warn('This shit is old? lets use new one: profileAPI')
+    return profileAPI.getProfile(userId)
+    /*return instance.get(`profile/${userId}`)  // teacher used all response, not cut it
+      .then(response => response.data)*/
+  }
+}
+
+export const profileAPI = {
+  getProfile(userId) {
     return instance.get(`profile/${userId}`)  // teacher used all response, not cut it
-      .then(response => response.data)
+      /*.then(response => response.data)*/
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/${userId}`)
+    /*.then(response => response.data)*/
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status`, { status })
   }
 }
 
