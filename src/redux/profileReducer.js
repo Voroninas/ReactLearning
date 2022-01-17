@@ -2,7 +2,8 @@
 import { usersAPI, profileAPI } from '../api/api.js'
 
 const ADD_POST = "ADD-POST"
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+const DELETE_POST = "DELETE_POST"
+/*const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"*/
 const SET_USER_PROFILE = "SET_USER_PROFILE"
 const SET_STATUS = "SET_STATUS"
 
@@ -14,7 +15,7 @@ let initialState = {
     { id: 2, message: "Now the posts data in array and obj", likesCount: 23, imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' },
     { id: 3, message: "Посты не захардкожены в вёрстке", likesCount: 999, imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' }
   ],
-  newPostText: 'текст из this._state.profileData.newPostText',
+  /*newPostText: 'текст из this._state.profileData.newPostText',*/
   profile: null,
   status: ""
 }
@@ -25,26 +26,31 @@ const profileReducer = (state = initialState, action) => {
       let newPost = {
         // id: state.postData.length + 1,
         id: 111,
-        message: state.newPostText,
+        message: action.newText,
         likesCount: 0,
         imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg'
       }
       return {
         ...state,
-        postData: [...state.postData, newPost],
-        newPostText: ""
+        postData: [...state.postData, newPost]/*,
+        newPostText: ""*/
       }
     }
-    case UPDATE_NEW_POST_TEXT: {
+    /*case UPDATE_NEW_POST_TEXT: {
       return {
         ...state,
         newPostText: action.newText
       }
-    }
+    }*/
     case SET_USER_PROFILE: {
       return {
         ...state,
         profile: action.profile
+      }
+    }case DELETE_POST: {
+      return {
+        ...state,
+        postData: state.postData.filter(post => post.id != action.postId)
       }
     }
     case SET_STATUS: {
@@ -57,8 +63,9 @@ const profileReducer = (state = initialState, action) => {
   }
 }
 
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+export const addPostActionCreator = (text) => ({ type: ADD_POST, newText: text })
+export const deletePost = (postId) => ({ type: DELETE_POST, postId })
+/*export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })*/
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 
@@ -80,7 +87,7 @@ export const getStatus = (userId) => (dispatch) => {
 
 export const updateStatus = (status) => (dispatch) => {
   profileAPI.updateStatus(status).then(response => { // надо глянуть что за структура придёт
-    console.log("updateStatus response", response)
+    /*console.log("updateStatus response", response)*/
     if (response.data.resultCode === 0){
       dispatch(setStatus(response.data.data))
       /*dispatch(setStatus(response.statusText))*/
