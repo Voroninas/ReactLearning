@@ -15,6 +15,11 @@ class ProfileStatus extends React.Component {
     /*console.log("ProfileStatus updateStatus this.state.status", this.state.status)*/
     this.props.updateStatus({status: this.state.status})  // all i can say, trouble in updateStatus. Looks like server work wrong
   }
+  componentDidUpdate = (prevProps, prevState) =>{
+    if (prevProps.status !== this.props.status) {
+      this.setState({ status: this.props.status })
+    }    
+  }
   onStatusChange = (e) => {
     /*console.log("onStatusChange текст инпута e", e.currentTarget.value)*/
     this.setState({ status: e.currentTarget.value })
