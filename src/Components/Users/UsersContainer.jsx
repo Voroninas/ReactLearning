@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import { compose } from "redux"
 import Users from './Users'
 import Preloader from '../common/preloader/Preloader.js'
-import { withAuthRedirect } from '../hoc/withAuthRedirect.jsx'
+import { withAuthRedirect } from '../../hoc/withAuthRedirect.jsx'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
