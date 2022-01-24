@@ -2,7 +2,9 @@ import React from 'react';
 import MyPosts from './MyPosts';
 import {
   addPostActionCreator,
-  updateNewPostTextActionCreator
+  /*updateNewPostTextActionCreator*/ 
+  /*once upon a time i change the code in profileReducer 
+  but do not check the affect, ups */
 } from './../../../redux/profileReducer.js';
 import { connect } from "react-redux"
 /*
@@ -39,10 +41,10 @@ let mapDispatchToProps = (dispatch) => {
   return {
     addPost: () => {
       dispatch(addPostActionCreator())
-    },
+    }/*,
     updateNewPostText: (text) => {
       dispatch(updateNewPostTextActionCreator(text))
-    }
+    }*/
   }
 }
 
