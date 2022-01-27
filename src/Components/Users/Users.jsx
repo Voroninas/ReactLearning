@@ -1,80 +1,16 @@
 import React from 'react'
-import styles from './Users.module.css'
-import userPhoto from '../../assets/images/user.png'
-import { NavLink } from 'react-router-dom'
+import Paginator from '../common/Paginator/Paginator.jsx'
+import User from './User.jsx'
 
 const Users = (props) => {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-  let pages = []
-  let endPages = []
-  /*for (let i = 1; i <= pagesCount; i++) {*/
-  // too many pages from server, i cut it
-  for (let i = 1; i <= 5; i++) {
-    pages.push(i)
-  }
-
-  for (let i = pagesCount - 3; i <= pagesCount; i++) {
-    endPages.push(i)
-  }
-
   return (<div>
-    {/*<span className={props.currentPage === p && styles.selectedPage}
-          onClick={(e) => { props.onPageChanged(p) }}>{p} </span>*/}
-    <div>
-      {pages.map(p => {
-        return <span className={props.currentPage === p ? styles.selectedPage : styles.unselectedPage}
-          onClick={(e) => { props.onPageChanged(p) }}>{p} </span>
-      })
-      }
-      {/*// it`s mine piece*/}
-      ...
-      {
-        endPages.map(p => {
-          return <span className={props.currentPage === p ? styles.selectedPage : styles.unselectedPage}
-            onClick={(e) => { props.onPageChanged(p) }}> {p}</span>
-        })
-      }
-      {/* // it`s mine piece
-      ... {<span className={props.currentPage === pagesCount && styles.selectedPage}
-          onClick={(e) => { props.onPageChanged(pagesCount) }}>{pagesCount}</span>}*/}
-      <div>Итого {pagesCount} страниц, всего пользователей: {props.totalUsersCount}</div>
-    </div>
+    <Paginator totalUsersCount={props.totalUsersCount}
+      pageSize={props.pageSize} currentPage={props.currentPage}
+      onPageChanged={props.onPageChanged} />
     {
-      props.users.map(u => <div key={u.id}>
-        <span>
-          <div>
-            <NavLink to={'/profile/' + u.id}>
-              <img src={u.photos.small != null ?
-                u.photos.small : userPhoto}
-                className={styles.userPhoto} />
-            </NavLink>
-          </div>
-          <div>
-            {u.followed
-              ? <button disabled={props.followingInProgress
-                .some(id => id === u.id)}
-                onClick={() => {
-                  props.unfollow(u.id)
-                }}>Unfollow</button>
-              : <button disabled={props.followingInProgress
-                .some(id => id === u.id)}
-                onClick={() => {
-                  props.follow(u.id)
-                }}>Follow</button>
-            }
-          </div>
-        </span>
-        <span>
-          <span>
-            <div>{u.name}</div>
-            <div>{u.status}</div>
-          </span>
-          <span>
-            <div>{'u.location.country'}</div>
-            <div>{'u.location.city'}</div>
-          </span>
-        </span>
-      </div>)
+      props.users.map(u => <User user={u}
+        followingInProgress={props.followingInProgress}
+        unfollow={props.unfollow} follow={props.follow} />)
     }
   </div>)
 }

@@ -1,5 +1,6 @@
 
 import { usersAPI } from '../api/api.js'
+import { updateObjectInArray } from '../utils/objectHelper.js'
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
@@ -23,45 +24,35 @@ const usersReducer = (state = initialState, action) => {
     case FOLLOW: {
       return {
         ...state,
-        users: state.users.map(u => {
-          if (u.id === action.userId) {
-            return { ...u, followed: true }
-          }
-          return u
-        })
+        users: updateObjectInArray(state.users, action.userId, "id", { followed: true })        
       }
     }
     case UNFOLLOW: {
       return {
         ...state,
-        users: state.users.map(u => {
-          if (u.id === action.userId) {
-            return { ...u, followed: false }
-          }
-          return u
-        })
-      }
+        users: updateObjectInArray(state.users, action.userId, "id", { followed: false })        
     }
+  }
     case SET_USERS: {
-      return { ...state, users: [...action.users] }
-    }
+  return { ...state, users: [...action.users] }
+}
     case SET_CURRENT_PAGE: {
-      return { ...state, currentPage: action.currentPage }
-    }
+  return { ...state, currentPage: action.currentPage }
+}
     case SET_TOTAL_USERS_COUNT: {
-      return { ...state, totalUsersCount: action.count }
-    }
+  return { ...state, totalUsersCount: action.count }
+}
     case TOGGLE_IS_FETCHING: {
-      return { ...state, isFetching: action.isFetching }
-    }
+  return { ...state, isFetching: action.isFetching }
+}
     case TOGGLE_IS_FOLLOWING_PROGRESS: {
-      return {
-        ...state,
-        followingInProgress: action.isFetching ?
-          [...state.followingInProgress, action.userId]
-          : state.followingInProgress.filter(id => id != action.userId)
-      }
-    }
+  return {
+    ...state,
+    followingInProgress: action.isFetching ?
+      [...state.followingInProgress, action.userId]
+      : state.followingInProgress.filter(id => id != action.userId)
+  }
+}
     default: return state
   }
 }
@@ -75,34 +66,31 @@ export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isF
 export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
 
 export const getUsers = (currentPage, pageSize) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleIsFetching(true))
-    usersAPI.getUsers(currentPage, pageSize).then(data => {
-      dispatch(toggleIsFetching(false))
-      dispatch(setUsers(data.items))
-      dispatch(setTotalUsersCount(data.totalCount))
-    })
+    /*dispatch(setCurrentPage(currentPage))*/
+    let data = await usersAPI.getUsers(currentPage, pageSize)
+    dispatch(toggleIsFetching(false))
+    dispatch(setUsers(data.items))
+    dispatch(setTotalUsersCount(data.totalCount))
   }
 }
-export const follow = (usersId) => (dispatch) => {
-  dispatch(toggleFollowingProgress(true, usersId))
 
-  usersAPI.follow(usersId).then(data => {
-    if (data.resultCode == 0) {
-      dispatch(followSuccess(usersId))
-    }
-    dispatch(toggleFollowingProgress(false, usersId))
-  })
+const followUnfollowFlow = async (dispatch, usersId, apiMethod, actionCreator) => {
+  dispatch(toggleFollowingProgress(true, usersId))
+  let data = await apiMethod(usersId)
+  if (data.resultCode == 0) {
+    dispatch(actionCreator(usersId))
+  }
+  dispatch(toggleFollowingProgress(false, usersId))
 }
-export const unfollow = (usersId) => (dispatch) => {
-  dispatch(toggleFollowingProgress(true, usersId))
 
-  usersAPI.unfollow(usersId).then(data => {
-    if (data.resultCode == 0) {
-      dispatch(unfollowSuccess(usersId))
-    }
-    dispatch(toggleFollowingProgress(false, usersId))
-  })
+export const follow = (usersId) => (dispatch) => {
+  followUnfollowFlow(dispatch, usersId, usersAPI.follow.bind(usersAPI), followSuccess)
+}
+
+export const unfollow = (usersId) => (dispatch) => {
+  followUnfollowFlow(dispatch, usersId, usersAPI.unfollow.bind(usersAPI), unfollowSuccess)
 }
 
 export default usersReducer;
