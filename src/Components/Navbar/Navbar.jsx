@@ -27,13 +27,13 @@ but this steel dont work:
       <NavLink to="/menu" activeClassName={s.activeLink}>Menu</NavLink>
     </div>
     <div className={s.item}>
-      <NavLink to="/news" activeClassName={s.activeLink}>News</NavLink>
+      <NavLink to="/GridExample" activeClassName={s.activeLink}>GridExample</NavLink>
     </div>
     <div className={s.item}>
-      <NavLink to="/messages" activeClassName={s.activeLink}>Messages</NavLink>
+      <NavLink to="/newExample" activeClassName={s.activeLink}>New example</NavLink>
     </div>
     <div className={s.item}>
-      <NavLink to="/settings" activeClassName={s.activeLink}>Settings</NavLink>
+      <NavLink to="/examples" activeClassName={s.activeLink}>Examples</NavLink>
     </div>
     <div>
       {/*<FriendsTable {...props} />*/}
