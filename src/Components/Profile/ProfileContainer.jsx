@@ -34,7 +34,10 @@ let mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
   withRouter,  // now we know what in url
-  withAuthRedirect)(ProfileContainer);
+  /*withAuthRedirect*/)(ProfileContainer);
+
+/*withAuthRedirect перебрасывает на страницу Login, 
+а я на неё забил и не сделал*/
 
 /*let AuthRedirectComponent = withAuthRedirect()
 
