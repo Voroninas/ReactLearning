@@ -24,7 +24,7 @@ export const usersAPI = {
       .then(response => response.data)
   },
   getProfile(userId) {
-    console.warn('This shit is old? lets use new one: profileAPI')
+    console.warn('This shit, usersAPI.getProfile, is old! lets use new one: profileAPI')
     return profileAPI.getProfile(userId)
     /*return instance.get(`profile/${userId}`)  // teacher used all response, not cut it
       .then(response => response.data)*/
@@ -42,6 +42,15 @@ export const profileAPI = {
   },
   updateStatus(status) {
     return instance.put(`profile/status`, { status })
+  },
+  savePhoto(photoFile) {
+    const formData = new FormData()
+    formData.append("image", photoFile)
+    return instance.put(`profile/photo`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
   }
 }
 
