@@ -41,4 +41,7 @@ let mapDispatchToProps = (dispatch) => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps), 
-  withAuthRedirect) (Dialogs); 
+  /*withAuthRedirect*/) (Dialogs); 
+
+/*withAuthRedirect перебрасывает на страницу Login, 
+а я на неё забил и не сделал*/
