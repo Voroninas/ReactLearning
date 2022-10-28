@@ -1,7 +1,6 @@
 // https://youtu.be/fmSIHr3WKxk?t=357
 import React from 'react';
-import s from './CubeCSS.css';
-// todo переделать на модульный css (дописать слово модуль в название файла css и поменять обращение к сss на className={s.item} в файле jsx)
+import s from './CubeCSS.module.css';
 
 const CubeCSS = () => {
 /*  // i`m too tired for this shet, it`s not working yet
@@ -18,14 +17,14 @@ const CubeCSS = () => {
       'rotateX(' + rotateX + 'deg)' + 'rotateY(' + rotateY + 'deg)';
     })()*/
 
-  return <><div className="cubeContainer">
-    <div className="cube">
-      <div className="side front">front</div>
-      <div className="side back">back</div>
-      <div className="side right">right</div>
-      <div className="side left">left</div>
-      <div className="side top">top</div>
-      <div className="side bottom">bottom</div>
+  return <><div className={s.cubeContainer}>
+    <div className={s.cube}>
+      <div className={`${s.side} ${s.front}`}>front</div>
+      <div className={`${s.side} ${s.back}`}>back</div>
+      <div className={`${s.side} ${s.right}`}>right</div>
+      <div className={`${s.side} ${s.left}`}>left</div>
+      <div className={`${s.side} ${s.top}`}>top</div>
+      <div className={`${s.side} ${s.bottom}`}>bottom</div>
     </div>
   </div></>
 }
