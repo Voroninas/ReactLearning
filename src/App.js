@@ -8,11 +8,12 @@ import UsersContainer from './Components/Users/UsersContainer.jsx';
 import LoginPage from './Components/Login/Login.jsx';
 import { Route } from 'react-router-dom'
 
+import Footer from './Components/Footer/Footer.jsx';
 import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/examples/GridExample/GridExample.jsx';
 import CurlyText from './Components/examples/CurlyText/CurlyText.jsx';
 import CubeCSS from './Components/examples/CubeCSS/CubeCSS.jsx';
-import Footer from './Components/Footer/Footer.jsx';
+import Flip3DCard from './Components/examples/Flip3DCard/Flip3DCard.jsx';
 
 function App() {
   //console.log('>>>>>> App props <<<<<', props)
@@ -36,6 +37,7 @@ function App() {
           <img style={{ width: "100%" }} src="https://cdn.promodj.com/afs/c51f43e01bd7032aa206135ca8cc8ee312:resize:2000x2000:same:c08837" />
         </Route>
         <Route path='/examples'>
+          <Flip3DCard />
           <CurlyText/>
           <CubeCSS/>
         </Route>
