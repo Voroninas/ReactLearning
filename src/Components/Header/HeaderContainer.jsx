@@ -10,12 +10,12 @@ class HeaderContainer extends React.Component {
     this.props.getAuthUserData()
   }
   render() {
-    return <div>
+    return <>
       {this.props.isFetching ?
         <Preloader />
         : null}
       <Header {...this.props} />
-    </div>
+    </>
   }
 }
 
