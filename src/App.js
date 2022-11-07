@@ -12,6 +12,7 @@ import Menu from './Components/Menu/Menu.jsx';
 import GridExample from './Components/examples/GridExample/GridExample.jsx';
 import CurlyText from './Components/examples/CurlyText/CurlyText.jsx';
 import CubeCSS from './Components/examples/CubeCSS/CubeCSS.jsx';
+import Footer from './Components/Footer/Footer.jsx';
 
 function App() {
   //console.log('>>>>>> App props <<<<<', props)
@@ -40,6 +41,7 @@ function App() {
         </Route>
         {/*<Route path='/settings'><img style={{ width: "100%" }} src="https://avatars.mds.yandex.net/get-zen_doc/1857055/pub_5d792ba9fbe6e73d6415732f_5d792c1934808200ad4745e2/scale_1200" /></Route>*/}
       </div>
+      <Footer/>
     </div>
   );
 }

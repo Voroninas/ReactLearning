@@ -22,7 +22,8 @@ but this steel dont work:
       <NavLink to="/users" className={`${s.item} ${s.activeLink}`} activeClassName={s.activeLink}>Users</NavLink>
     </div>*/}
 
-
+    ~~~~~~~~~ {/*just wanna separate my stuff*/}
+    
     <div className={s.item}>
       <NavLink to="/menu" activeClassName={s.activeLink}>Menu</NavLink>
     </div>
