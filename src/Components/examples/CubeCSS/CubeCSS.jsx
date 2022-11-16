@@ -3,22 +3,34 @@ import React from 'react';
 import s from './CubeCSS.module.css';
 
 const CubeCSS = () => {
-/*  // i`m too tired for this shet, it`s not working yet
-  (function(){
+  // ref is not the best option, 
+  // probably should use hook or componentDidMount 
+  (() => {
       let rotateX = 0
       let rotateY = 0
-      document.onkeydown = function(e){
+      document.onkeydown = (e) => {
         if(e.keyCode===37) rotateY -=4
         else if(e.keyCode===38) rotateX -=4
-        else if(e.keyCode===39) rotateY -=4
-        else if(e.keyCode===40) rotateX -=4
+        else if(e.keyCode===39) rotateY +=4
+        else if(e.keyCode===40) rotateX +=4
+        
+        ref.current.style.transform = 
+        'rotateX(' + rotateX + 'deg)' + 'rotateY(' + rotateY + 'deg)';
       }
-      document.querySelector('.cube').style.transform = 
-      'rotateX(' + rotateX + 'deg)' + 'rotateY(' + rotateY + 'deg)';
-    })()*/
+      /*document.querySelector('.cube').style.transform = 
+      'rotateX(' + rotateX + 'deg)' + 'rotateY(' + rotateY + 'deg)';*/
+    })()
+
+  let ref = React.createRef()
+
+  let reset = ()=> {
+    ref.current.style.transform = "rotateX(0deg) rotateY(0deg)"
+    /*rotateX = 0
+    rotateY = 0*/
+  }
 
   return <><div className={s.cubeContainer}>
-    <div className={s.cube}>
+    <div className={s.cube} onClick={reset} ref={ref}>   {/*delete ref*/}
       <div className={`${s.side} ${s.front}`}>front</div>
       <div className={`${s.side} ${s.back}`}>back</div>
       <div className={`${s.side} ${s.right}`}>right</div>
