@@ -3,7 +3,7 @@ import preloader from '../../../assets/images/loader.gif'
 
 let Preloader = (props) => {
   return (<div>
-    <img src={preloader} />
+    <img src={preloader} alt="moving circle"/>
   </div>)
 }
 

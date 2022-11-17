@@ -10,7 +10,7 @@ const DialogsItem = (props) => {
 
   return <div className={s.dialog}>
     <NavLink className={s.linkStyle} to={path}>
-      <img className={commonStyle.roundAvatar} src={props.imgSrc} />
+      <img className={commonStyle.roundAvatar} src={props.imgSrc} alt="round avatar"/>
       {props.name}
     </NavLink>
   </div>

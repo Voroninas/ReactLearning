@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
         {/*<img style={{width: "500px"}} src={props.imgSrc} />*/}
       </div>
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large} />
+        <img src={props.profile.photos.large} alt="big profile photos" />
         <div>Меня зовут {props.profile.fullName}</div>
         <div>Обо мне: {props.profile.aboutMe}</div>
         <div>Контакты: {props.profile.contacts.facebook}, {props.profile.contacts.vk}</div>
