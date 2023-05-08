@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from "redux"
-import dialogsReducer from "./dialogsReducer.js"
+import dialogsReducer from "./dialogsReducer.ts"
 import profileReducer from "./profileReducer.js"
 import friendsReducer from "./friendsReducer.js"
 import usersReducer from "./usersReducer.js"
-import authReducer from "./authReducer.js"
+import authReducer from "./authReducer.ts"
 import thunkMiddleware from 'redux-thunk' // wrote "thunkMiddleware" instead "thunk"
 
 let reducers = combineReducers({

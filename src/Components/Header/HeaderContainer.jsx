@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAuthUserData } from './../../redux/authReducer.js'
+import { getAuthUserData } from './../../redux/authReducer.ts'
 import { connect } from "react-redux"
 import Preloader from '../common/preloader/Preloader.js'
 import Header from './Header.jsx'

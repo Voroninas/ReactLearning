@@ -7,7 +7,7 @@ import Dialogs from './Dialogs'
 import {
   addMessageActionCreator,
   updateNewMessageTextActionCreator
-} from './../../redux/dialogsReducer.js';
+} from './../../redux/dialogsReducer.ts';
 
 /*let AuthRedirectComponent = withAuthRedirect(Dialogs)*/
 

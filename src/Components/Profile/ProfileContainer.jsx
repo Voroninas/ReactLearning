@@ -4,22 +4,20 @@ import { connect } from "react-redux"
 import { compose } from "redux"
 import { withRouter } from 'react-router-dom'
 import Profile from './Profile';
-import { getUserProfile, getStatus, updateStatus } from '../../redux/profileReducer.js'
+import { getUserProfile, getStatus, updateStatus } from '../../redux/profileReducer.ts'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect.jsx'
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId
     // userId was read from url, because we use withRouter
-    if (!userId) {
-      userId = 2
-    }
+    if (!userId) { userId = 2 }
     this.props.getUserProfile(userId)
     this.props.getStatus(userId)
   }
   render() {
     return (
-      <Profile {...this.props} profile={this.props.profile} 
+      <Profile {...this.props} profile={this.props.profile}
         status={this.props.status} 
         updateStatus={this.props.updateStatus} />
     )

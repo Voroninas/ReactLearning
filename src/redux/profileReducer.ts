@@ -1,4 +1,5 @@
 
+import userPic from '../../src/assets/images/user.png'
 import { usersAPI, profileAPI } from '../api/api.js'
 
 const ADD_POST = "ADD-POST"
@@ -11,9 +12,9 @@ let initialState = {
   /*textDescripBlock: "ava and description",
   imgSrc: 'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350',*/
   postData: [
-    { id: 1, message: 'Hi, how are you?', likesCount: 0, imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' },
-    { id: 2, message: "Now the posts data in array and obj", likesCount: 23, imgSrc: 'https://pbs.twimg.com/profile_images/913861131005022209/iaBdZZn1.jpg' },
-    { id: 3, message: "Посты не захардкожены в вёрстке", likesCount: 999, imgSrc: 'https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg' }
+    { id: 1, message: 'Hi, how are you?', likesCount: 0, imgSrc: userPic },
+    { id: 2, message: "Now the posts data in array and obj", likesCount: 23, imgSrc: userPic },
+    { id: 3, message: "Посты не захардкожены в вёрстке", likesCount: 999, imgSrc: userPic }
   ],
   /*newPostText: 'текст из this._state.profileData.newPostText',*/
   profile: null,

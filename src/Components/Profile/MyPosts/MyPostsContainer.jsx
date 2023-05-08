@@ -5,7 +5,7 @@ import {
   /*updateNewPostTextActionCreator*/ 
   /*once upon a time i change the code in profileReducer 
   but do not check the affect, ups */
-} from './../../../redux/profileReducer.js';
+} from './../../../redux/profileReducer.ts';
 import { connect } from "react-redux"
 /*
 const MyPostsContainer = () => {
