@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  follow, unfollow, setCurrentPage, getUsers
-} from './../../redux/usersReducer.js';
+import { follow, unfollow, setCurrentPage, getUsers } from './../../redux/usersReducer.ts';
 import { connect } from "react-redux"
 import { compose } from "redux"
 import Users from './Users'
