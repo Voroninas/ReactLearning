@@ -1,10 +1,18 @@
 import React from 'react'
 import styles from './Paginator.module.css'
 
-const Paginator = (props) => {
+type propsType = {
+  totalUsersCount: number
+  pageSize: number
+  currentPage: number
+  onPageChanged: (pageNumber: number) => void
+  portionSize: number
+}
+
+const Paginator: React.FC<propsType> = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-  let pages = []
-  let endPages = []
+  let pages : Array<number> = []
+  let endPages : Array<number> = []
   /*for (let i = 1; i <= pagesCount; i++) {*/
   // too many pages from server, i cut it
   for (let i = 1; i <= 5; i++) { pages.push(i) }

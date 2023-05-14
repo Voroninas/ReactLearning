@@ -1,7 +1,7 @@
 
 import userPic from '../../src/assets/images/user.png'
 import { usersAPI, profileAPI } from '../api/api.js'
-import { postDataType, profileType } from '../types/types.ts'
+import { postDataType, profileType } from '../types/types'
 
 const ADD_POST = "ADD-POST"
 const DELETE_POST = "DELETE_POST"
