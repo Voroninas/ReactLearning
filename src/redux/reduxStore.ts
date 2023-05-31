@@ -6,15 +6,19 @@ import usersReducer from "./usersReducer.ts"
 import authReducer from "./authReducer.ts"
 import thunkMiddleware from 'redux-thunk' // wrote "thunkMiddleware" instead "thunk"
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
   dialogsPage: dialogsReducer,
   profileData: profileReducer,
-  friends: friendsReducer,
   usersPage: usersReducer,
+  friends: friendsReducer,
   auth: authReducer
 })
-let store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
+type rootReducerType = typeof rootReducer
+export type AppStateType = ReturnType<rootReducerType>
+
+let store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+//@ts-ignore
 window.store = store
 
 export default store

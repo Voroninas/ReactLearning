@@ -4,7 +4,7 @@ import HeaderContainer from './Components/Header/HeaderContainer.jsx';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
-import UsersContainer from './Components/Users/UsersContainer.jsx';
+import UsersContainer from './Components/Users/UsersContainer';
 import LoginPage from './Components/Login/Login.jsx';
 import { Route } from 'react-router-dom'
 
