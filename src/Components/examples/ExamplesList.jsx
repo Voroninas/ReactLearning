@@ -28,6 +28,7 @@ import { Button } from 'react-bootstrap'; // так даже можно неск
 
 const ExamplesList = (props) => {
   return (<div>
+    <div className="sticky-top">Блок прилипший к верху, при прокрутке экрана остаётся наверху</div>
     <div>
 
       <div>this is proved that bootstrap is enabled</div>
@@ -81,6 +82,59 @@ Tabs,
 Tooltips,
 Toasts</div>
 
+{/*
+xs <576px  
+sm ≥576px  
+md ≥768px  
+lg ≥992px  
+xl ≥1200px 
+xxl ≥1400px
+*/}
+
+{/*text-center - это готовый бутстрапный класс для текста, там много полезных классов, надо бы подробнее почитать*/}
+<div className="container">
+  <div className="row">
+    <div className="col-12 text-center">Заголовок во всю ширину</div>
+  </div>
+  <div className="row">
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка1
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка2
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка3
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка4
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка5
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка6
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка7
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка8
+    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
+      Колонка9
+    </div>
+  </div>
+  <div className="row">
+    <div className="col-xs-12 col-lg-6 text-center">Пример1</div>
+    <div className="col-xs-12 col-lg-6 text-center">Пример2</div>
+    <div className="col-xs-12 col-lg-6 text-center">Пример3</div>
+    <div className="col-xs-12 col-lg-6 text-center">Пример4</div>
+    <div className="col-xs-12 col-lg-6 text-center">Пример5</div>
+    <div className="col-xs-12 col-lg-6 text-center">Пример6</div>
+  </div>
+</div>
+
       <ol start={9}> {/*ol - ordered list; type={"I"}*/}
         <li>az</li>  {/*li - list item*/}
         <li>buki</li>
@@ -130,6 +184,9 @@ Toasts</div>
     <Flip3DCard frontInfo={<img src='https://i.pinimg.com/736x/4c/70/63/4c7063212792902ae0d0d517a30aa1ac.jpg' alt={"logo"} />} backInfo="456" />
     <Flip3DCard />
     <CurlyText />
+
+<div className="sticky-bottom">Липкий подвал, звучит пошло</div>
+
   </div>)
 }
 
