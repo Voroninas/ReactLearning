@@ -1,6 +1,6 @@
 import React from 'react';
 
-class FlavorForm extends React.Component {
+class SelectForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: 'coconut'};
@@ -23,11 +23,14 @@ class FlavorForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Pick your favorite flavor:
+        {/*select-у можно задать атрибут multiple и тогда можно выбрать несколько пунктов*/}
           <select value={this.state.value} onChange={this.handleChange}>
             <option value="grapefruit">Grapefruit</option>
             <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
+          {/*атрибут selected задаёт выбор по умолчанию*/}
+            <option selected value="coconut">Coconut</option>
+          {/*атрибут disabled не даст выбрать пункт*/}
+            <option disabled value="mango">Mango</option>
           </select>
         </label>
         <input type="submit" value="Submit" />
@@ -36,4 +39,4 @@ class FlavorForm extends React.Component {
   }
 }
 
-export default FlavorForm;
+export default SelectForm;

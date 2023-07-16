@@ -10,10 +10,10 @@ display, font-family и font-size
   font-size: 4em;
 
   margin: auto;
-  perspective: 25em;
+  perspective: 10em;
   position: relative;
-  width: 11em;
-  height: 11em;  
+  width: 5em;
+  height: 5em;  
 }
 
 .bottlesContainer,

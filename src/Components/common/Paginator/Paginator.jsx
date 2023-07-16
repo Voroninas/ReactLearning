@@ -15,7 +15,7 @@ const Paginator = (props) => {
     endPages.push(i)
   }
 
-  return (
+  return (<>
     {/*<span className={props.currentPage === p && styles.selectedPage}
           onClick={(e) => { props.onPageChanged(p) }}>{p} </span>*/}
     < div >
@@ -37,7 +37,7 @@ const Paginator = (props) => {
       ... {<span className={props.currentPage === pagesCount && styles.selectedPage}
           onClick={(e) => { props.onPageChanged(pagesCount) }}>{pagesCount}</span>}*/}
 <div>Итого {pagesCount} страниц, всего пользователей: {props.totalUsersCount}</div>
-    </div >)
+    </div ></>)
 }
 
 export default Paginator;
