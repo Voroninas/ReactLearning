@@ -1,0 +1,64 @@
+*{
+  box-sizing: border-box;
+}
+
+.cubeContainer{
+  position: relative;
+  margin: 100px auto;
+  width: 200px;
+  height: 200px;
+  perspective: 500px;
+}
+.cube{
+  width: inherit;/*такие же размеры что у родительского элемента, className="cubeContainer"*/
+  height: inherit;
+  transform-style: preserve-3d; /*создаёт 3д пространство для дочерних элементов*/
+  /*transform: rotateX(4deg) rotateY(4deg);*/
+  
+  /*animation: spin 9s linear infinite; */
+}
+
+.side{
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border: 5px solid #fff;
+
+  font: normal 30px Arial;
+  text-align: center;
+  line-height: 200px;
+  color: white;
+}
+/*https://youtu.be/fmSIHr3WKxk?t=473*/
+.front{
+  transform: translateZ(100px);  
+}
+
+.back{
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.left{
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top{
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom{
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spin{
+  from{
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to{
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
