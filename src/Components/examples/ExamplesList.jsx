@@ -28,7 +28,8 @@ import { Button } from 'react-bootstrap'; // так даже можно неск
 
 const ExamplesList = (props) => {
   return (<div>
-    <div className="sticky-top">Блок прилипший к верху, при прокрутке экрана остаётся наверху</div>
+    <div className="sticky-top">Блок прилипший к верху, при прокрутке экрана остаётся наверху
+      <hr></hr>{/*горизонтальная черта*/}</div>
     <div>
 
       <div>this is proved that bootstrap is enabled</div>
@@ -54,33 +55,9 @@ const ExamplesList = (props) => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-      <div>В react-bootstrap есть куча полезных фич и готовых компонент вроде: Alerts,
-Accordion,
-Badge,
-Breadcrumb,
-Buttons,
-Button Group,
-Cards,
-Carousel,
-Close Button,
-Dropdowns,
-Figures,
-Images,
-List Group,
-Modal,
-Navs,
-Navbar,
-Offcanvas,
-Overlays,
-Pagination,
-Placeholder,
-Popovers,
-Progress,
-Spinners,
-Table,
-Tabs,
-Tooltips,
-Toasts</div>
+      <div>В react-bootstrap есть куча полезных фич и готовых компонент вроде: Alerts, Accordion, Badge, Breadcrumb, Buttons, Button Group, Cards, Carousel, Close Button, Dropdowns, Figures, Images, List Group, Modal, Navs, Navbar, Offcanvas, Overlays, Pagination, Placeholder, Popovers, Progress, Spinners, Table, Tabs, Tooltips, Toasts</div>
+
+      <hr></hr>{/*горизонтальная черта*/}
 
 {/*
 xs <576px  
@@ -97,33 +74,15 @@ xxl ≥1400px
     <div className="col-12 text-center">Заголовок во всю ширину</div>
   </div>
   <div className="row">
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка1
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка2
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка3
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка4
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка5
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка6
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка7
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка8
-    </div>
-    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">
-      Колонка9
-    </div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка1</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка2</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка3</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка4</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка5</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка6</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка7</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка8</div>
+    <div className="col-lg-4 col-sm-6 col-xs-12 text-center">Колонка9</div>
   </div>
   <div className="row">
     <div className="col-xs-12 col-lg-6 text-center">Пример1</div>
@@ -135,6 +94,8 @@ xxl ≥1400px
   </div>
 </div>
 
+      <hr></hr>{/*горизонтальная черта*/}
+      
       <ol start={9}> {/*ol - ordered list; type={"I"}*/}
         <li>az</li>  {/*li - list item*/}
         <li>buki</li>
@@ -179,13 +140,16 @@ xxl ≥1400px
       </details>
     </div>
     <SelectForm />
+      <hr></hr>{/*горизонтальная черта*/}
     <CubeCSS />
+      <hr></hr>{/*горизонтальная черта*/}
     <Flip3DCard frontInfo={"123"} backInfo="456" />
     <Flip3DCard frontInfo={<img src='https://i.pinimg.com/736x/4c/70/63/4c7063212792902ae0d0d517a30aa1ac.jpg' alt={"logo"} />} backInfo="456" />
     <Flip3DCard />
+      <hr></hr>{/*горизонтальная черта*/}
     <CurlyText />
 
-<div className="sticky-bottom">Липкий подвал, звучит пошло</div>
+<div className="sticky-bottom"><hr></hr>{/*горизонтальная черта*/}Липкий подвал, звучит пошло</div>
 
   </div>)
 }
