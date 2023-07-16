@@ -1,17 +1,11 @@
+/*как ни странно эта правка сработала, хоть и с багами: можно бутстраповский класс добавить в модульный CSS класс header с помощью composes */
+/*composes: sticky-top from 'bootstrap/dist/css/bootstrap.min.css';*/
 .header {
     grid-area: h;
-    background-color: green;
+    background-color: #006322;    
 }
 
 .header img {
     width: 80px;
     object-fit: contain;
-}
-
-.loginBlock{
-  float: right;  
-}
-
-.loginBlock a {
-  color: white
 }
