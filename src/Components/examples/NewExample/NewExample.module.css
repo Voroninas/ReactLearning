@@ -1,9 +1,27 @@
+
+/*
+// чисто из-за свойства resize скопировал. Типа можно менять размер дива мышкой, может когда-нибудь пригодится*/
+.resize div {
+    resize: both;
+    border: 3px solid #E51532;
+    height: 200px;
+    width: 200px;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .testButtonRed{
-  color: #E51532;
+  background-color: var(--myRed);
+  /*background-color: red;*/
+  /*background-color: #E51532;*/
 }
-.testButtonGreen{
-  color: #3FC16A;
-}
+
+:root{
+  --myRed: #0B1DCE;
+};
 
 .train {
   position: relative;
@@ -17,17 +35,3 @@
   transition: left 5s cubic-bezier(0.0, 0.5, 0.5, 1.0);
 }
 
-
-/*
-// чисто из-за свойства resize скопировал. Типа можно менять размер дива мышкой, может когда-нибудь пригодится
-div {
-    resize: both;
-    border: 3px solid #E51532;
-    height: 200px;
-    width: 200px;
-    overflow: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-*/

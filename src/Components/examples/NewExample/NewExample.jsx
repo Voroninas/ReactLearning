@@ -1,11 +1,11 @@
 import { memo, useState, useCallback } from 'react';
-import s from './NewExample.module.css';
+import stl from './NewExample.module.css';
 
 // хотел потестить хук useCallback, передача функции в дочерний компонент для возможности смены отображения родительского элемента через дочерний
 const ControlPannel = memo(({changer}) => {
   return (
     <div>
-      <button onClick={changer}>+</button>
+      <button onClick={changer}>Do rundome</button>
     </div>
   );
 });
@@ -20,18 +20,23 @@ const NewExample = (props) => {
 
       {value}
       <ControlPannel changer={changer} />
-    {/*<div>
-      <button>Button</button>
-    </div>*/}
+
+    <div className={stl.resize}>
+      <div>
+        <button className={stl.testButtonRed}>special color</button>
+      </div>      
+    </div>
+
+
 
 <hr />
 
-<img className={s.train} src="https://js.cx/clipart/train.gif" onClick={ ()=>{
+<img className={stl.train} src="https://js.cx/clipart/train.gif" onClick={ ()=>{
   /*debugger*/
   /*this.style.left='450px'*/
-  console.log(s.train)
+  console.log(stl.train)
   console.log(this)
-  /*s.train.left='450px'*/
+  /*stl.train.left='450px'*/
   } } alt={"logo"}/>
 
   </>
